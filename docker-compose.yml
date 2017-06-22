@@ -1,0 +1,17 @@
+version: '3'
+services:
+  #CloudBees Jenkins Team
+  #https://hub.docker.com/r/cloudbees/cloudbees-jenkins-team/
+  cjt:
+    build:
+      context: .
+    #https://wiki.jenkins-ci.org/display/JENKINS/Features+controlled+by+system+properties
+    environment:
+      JENKINS_SLAVE_AGENT_PORT: "50000"
+      JAVA_OPTS: "-Dorg.apache.commons.jelly.tags.fmt.timeZone=America/New_York"
+    ports:
+      - "9090:8080" #host:container
+    volumes:
+      - ./jenkins_home:/var/jenkins_home #persist all the data
+      - /var/run/docker.sock:/var/run/docker.sock #Docker on Docker
+      - ${USER_M2}:/root/.m2 #requires .env file
