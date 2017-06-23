@@ -15,7 +15,10 @@ If you don't have Maven, or you have Maven and don't care about speedy builds, t
 ## Start
     docker-compose up -d
 
-## Logs
+## Open
+http://localhost:9090
+
+## Console Logs
     docker-compose logs -f
 
 ## Stop
