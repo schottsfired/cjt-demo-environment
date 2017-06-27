@@ -10,7 +10,7 @@ Also see ``.env.sample``.
 If you don't have Maven, or you have Maven and don't care about speedy builds, then comment out or remove ``${USER_M2}:/root/.m2`` from the ``Dockerfile``.
 
 ## Build
-    docker-compose --build
+    docker-compose build
 
 ## Start
     docker-compose up -d
