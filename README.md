@@ -1,5 +1,10 @@
 # CloudBees Jenkins Team Demo
 
+## Features
+* Jenkins Master and Agent(s) run as Docker containers
+* Agents can be spawned and destroyed dynamically
+* All executors support [Maven](https://maven.apache.org/) and [Docker Pipeline](https://wiki.jenkins.io/display/JENKINS/Docker+Pipeline+Plugin)
+
 ## Initial Setup
 This demo requires that you have [Docker](https://www.docker.com/get-docker) installed.
 
