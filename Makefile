@@ -1,8 +1,31 @@
-#It's possible to start CJT with `make cjt` as long as the environment info is correct in this file (which it's not). Please consider this file as a "legacy" example and use docker-compose instead.
+.PHONY: agent
 
-cjt:
-	docker build . \
-	&& docker run \
-	-p 9090:8080 \
-	-v /Users/David/Projects/cjt-demo-environment/jenkins_home:/var/jenkins_home \
-	cloudbees/cloudbees-jenkins-team
+include .env
+
+default:
+	docker network create cjt-network || true \
+	&& docker build -f ./cjt/Dockerfile -t cjt . \
+	&& docker build -f ./agent/Dockerfile -t swarm-agent .
+
+agent:
+	docker run --rm -d \
+	--network=$(AGENT_NETWORK) \
+	--volumes-from cjt \
+	swarm-agent \
+	java -jar swarm-client-3.4.jar \
+	-description "CJT Demo Swarm Agent" \
+	-master $(AGENT_MASTER) \
+	-username $(AGENT_USER) \
+	-password $(AGENT_PASS) \
+	-executors $(AGENT_EXECUTORS) \
+	-fsroot /var/jenkins_home \
+	-disableSslVerification
+
+stop:
+	docker stop $$(docker ps -q --filter ancestor="swarm-agent") \
+	
+upgrade:
+	docker container prune --force --filter "label=app-name=cjt-demo-environment" \
+	&& docker rmi cjt \
+	&& docker rmi swarm-agent \
+	&& make

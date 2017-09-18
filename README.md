@@ -1,25 +1,21 @@
 # CloudBees Jenkins Team Demo
 
-## Configure
-Create an .env file in this directory that contains the path to your Maven .m2 directory:
+## Initial Setup
+This demo requires that you have [Docker](https://www.docker.com/get-docker) installed.
 
-    echo "USER_M2=/Users/David/.m2" >> .env
+Modify the ``.env.sample`` file to make it specific to your environment. You should only need to touch ``USER_M2``, all others may remain as-is. Then run ``cp .env.sample .env`` to initialize the environment.
 
-Also see ``.env.sample``.
+Finally, run ``make`` to let Docker do its thing.
 
-If you don't have Maven, or you have Maven and don't care about speedy builds, then comment out or remove ``${USER_M2}:/root/.m2`` from the ``Dockerfile``.
+## Starting and Stopping
+To start CJT, run ``docker-compose up``. Logs will be streamed to the console, and CJT can be stopped with control+C. Alternatively you can run CJT detached using ``docker-compose up -d``, access logs with ``docker logs cjt``, and stop using ``docker-compose down``.
 
-## Build
-    docker-compose build
+To start Agent(s), run ``make agent``. To stop all Agents, run ``make stop``.
 
-## Start
-    docker-compose up -d
+NOTE: [Swarm](https://wiki.jenkins.io/display/JENKINS/Swarm+Plugin) Agents require a user with appropriate permissions to connect to CJT. The default is admin/admin and you can change it in your ``.env`` if you wish.
 
-## Open
-http://localhost:9090
+## Accessing
+After starting CJT, you will find it running in your browser at http://localhost:9090.
 
-## Console Logs
-    docker-compose logs -f
-
-## Stop
-    docker-compose down
+## Upgrading
+To upgrade to a newer version, run ``make upgrade``.

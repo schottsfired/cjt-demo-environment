@@ -1,3 +1,2 @@
-jenkins_home/
-swarm-agent/data/
 .env
+cjt/data/
