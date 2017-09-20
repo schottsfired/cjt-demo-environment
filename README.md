@@ -22,4 +22,4 @@ To start Agent(s), run ``make agent``. To stop all Agents, run ``make stop``.
 NOTE: [Swarm](https://wiki.jenkins.io/display/JENKINS/Swarm+Plugin) Agents require a user with appropriate permissions to connect to CJT. The default is admin/admin and you can change it in your ``.env`` if you wish.
 
 ## Upgrading
-To upgrade to a newer version, run ``make upgrade``.
+To upgrade to a newer version, first stop CJT with control+C or ``docker-compose down``, then stop Agents with ``make stop``, then run ``make upgrade``.

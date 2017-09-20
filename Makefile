@@ -28,5 +28,5 @@ upgrade:
 	docker container prune --force --filter "label=app-name=cjt-demo-environment" \
 	&& docker rmi cjt \
 	&& docker rmi swarm-agent \
-	&& docker images --format '{{.Repository}}:{{.Tag}}' | grep '^cloudbees/cloudbees-jenkins-team' | xargs docker rmi
+	&& docker images --format '{{.Repository}}:{{.Tag}}' | grep '^cloudbees/cloudbees-jenkins-team' | xargs docker rmi \
 	&& make
