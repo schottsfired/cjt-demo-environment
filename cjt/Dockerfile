@@ -19,3 +19,6 @@ RUN apt-get -y install maven --no-install-recommends
 
 #Add Docker
 RUN curl -sSL https://get.docker.com/ | sh
+
+#Add Docker Compose
+RUN apt-get -y install docker-compose
