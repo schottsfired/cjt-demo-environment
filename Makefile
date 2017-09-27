@@ -3,7 +3,7 @@
 include .env
 
 default:
-	docker network create cjt-network || true \
+	docker network create $(AGENT_NETWORK) || true \
 	&& docker build -f ./cjt/Dockerfile -t cjt . \
 	&& docker build -f ./agent/Dockerfile -t swarm-agent .
 
