@@ -6,7 +6,7 @@
 * All executors support [Maven](https://maven.apache.org/) and [Docker Pipeline](https://wiki.jenkins.io/display/JENKINS/Docker+Pipeline+Plugin)
 
 ## Initial Setup
-This demo requires that you have [Docker](https://www.docker.com/get-docker) installed.
+This demo requires that you have [Docker](https://www.docker.com/get-docker) and [Maven](https://maven.apache.org/) installed.
 
 Modify the ``.env.sample`` file to make it specific to your environment. You should only need to touch ``USER_M2``, all others may remain as-is. Then run ``cp .env.sample .env`` to initialize the environment.
 
