@@ -22,7 +22,15 @@ agent:
 	-disableSslVerification
 
 stop:
-	docker stop $$(docker ps -q --filter ancestor="swarm-agent") \
+	docker stop $$(docker ps -q --filter ancestor="swarm-agent")
+
+sonar: #stop it with 'docker stop sonar'
+	docker run --rm -d \
+	--name=sonar \
+	--network=cjt-network \
+	-p 9000:9000 \
+	-p 9092:9092 \
+	sonarqube:lts-alpine
 	
 upgrade:
 	docker container prune --force --filter "label=app-name=cjt-demo-environment" \
