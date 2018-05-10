@@ -12,7 +12,7 @@ agent:
 	--network=cjt-network \
 	--volumes-from cjt \
 	swarm-agent \
-	java -jar swarm-client-3.4.jar \
+	java -jar swarm-client-3.9.jar \
 	-description "CJT Demo Swarm Agent" \
 	-master $(AGENT_MASTER) \
 	-username $(AGENT_USER) \
