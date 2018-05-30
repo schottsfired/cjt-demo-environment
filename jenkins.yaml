@@ -3,7 +3,8 @@ jenkins:
 unclassified:
   globalLibraries:
     libraries:
-      - name: "schottsfired-pipeline-libraries"
+      - name: "github.com/schottsfired/pipeline-libraries"
+        defaultVersion: master
         retriever:
           modernSCM:
             scm:
@@ -20,17 +21,17 @@ jobs:
           }
         }
       }
-# credentials:
-#   system:
-#     domainCredentials:
-#       - credentials:
-#           - usernamePassword:
-#               scope: GLOBAL
-#               id: sonar
-#               username: {SONAR_USER}
-#               password: {SONAR_PASSWORD}
-#           - usernamePassword:
-#               scope: GLOBAL
-#               id: dockerhub
-#               username: {DOCKERHUB_USER}
-#               password: {DOCKERHUB_PASSWORD}
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: sonar
+              username: ${SONAR_USER}
+              password: ${SONAR_PASSWORD}
+          - usernamePassword:
+              scope: GLOBAL
+              id: dockerhub
+              username: ${DOCKERHUB_USER}
+              password: ${DOCKERHUB_PASSWORD}

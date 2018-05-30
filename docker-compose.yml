@@ -10,6 +10,10 @@ services:
     environment:
       JENKINS_SLAVE_AGENT_PORT: "50000"
       JAVA_OPTS: "-Dorg.apache.commons.jelly.tags.fmt.timeZone=America/New_York"
+      SONAR_USER: ${SONAR_USER}
+      SONAR_PASSWORD: ${SONAR_PASSWORD}
+      DOCKERHUB_USER: ${DOCKERHUB_USER}
+      DOCKERHUB_PASSWORD: ${DOCKERHUB_PASSWORD}
     ports:
       - "9090:8080" #host:container
     volumes:
