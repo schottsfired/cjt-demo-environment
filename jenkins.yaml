@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "CloudBees Jenkins Team local demo environment with sample-rest-server job configured as code. Loading credentials next."
+  systemMessage: "CloudBees Jenkins Team local demo environment with sample-rest-server job configured as code."
 unclassified:
   globalLibraries:
     libraries:
