@@ -1,0 +1,10 @@
+swarm 
+timestamper 
+pipeline-maven 
+ansicolor 
+junit-attachments 
+tasks 
+maven-plugin 
+analysis-core 
+htmlpublisher 
+lockable-resources

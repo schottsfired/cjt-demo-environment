@@ -12,6 +12,7 @@ ADD https://raw.githubusercontent.com/jenkinsci/docker/master/install-plugins.sh
 RUN chmod 755 /usr/local/bin/install-plugins.sh
 ADD https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-support /usr/local/bin/jenkins-support
 RUN chmod 755 /usr/local/bin/jenkins-support
-RUN /usr/local/bin/install-plugins.sh swarm timestamper pipeline-maven ansicolor junit-attachments tasks maven-plugin analysis-core htmlpublisher
+COPY plugins.txt plugins.txt
+RUN /usr/local/bin/install-plugins.sh $(cat plugins.txt)
 
 USER jenkins
