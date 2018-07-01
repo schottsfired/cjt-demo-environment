@@ -23,3 +23,6 @@ NOTE: [Swarm](https://wiki.jenkins.io/display/JENKINS/Swarm+Plugin) Agents requi
 
 ## Upgrading
 To upgrade to a newer version, first stop CJT with control+C or ``docker-compose down``, then stop Agents with ``make stop``, then run ``make upgrade``.
+
+## CI/CD Demo
+Try running http://github.com/schottsfired/sample-rest-server on me! You will need to add credentials, update the ``Jenkinsfile`` environment variables, and be sure to ``make agent`` and ``make sonar`` before giving it a spin.
