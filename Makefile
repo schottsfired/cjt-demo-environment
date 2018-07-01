@@ -4,8 +4,8 @@ include .env
 
 default:
 	docker network create cjt-network || true \
-	&& docker build -f ./cjt/Dockerfile -t cjt . \
-	&& docker build -f ./agent/Dockerfile -t swarm-agent .
+	&& docker build -f ./cjt/Dockerfile -t cjt ./cjt \
+	&& docker build -f ./agent/Dockerfile -t swarm-agent ./agent
 
 agent:
 	docker run --rm -d \
