@@ -12,8 +12,10 @@ Open a terminal at this repo location and run `cp .sample.env .env` to create lo
 
 Finally, run ``make`` to let Docker do its thing.
 
+NOTE: If any configuration files are modified, like ``plugins.txt`` or ``/init.groovy.d/*.groovy``, then run ``make`` again to build new images.
+
 ## Starting and Stopping
-To start CJT, run ``docker-compose up``. Logs will be streamed to the console, and CJT can be stopped with control+C. Alternatively you can run CJT detached using ``docker-compose up -d``, access logs with ``docker logs cjt``, and stop using ``docker-compose down``.
+To start CJT, run ``docker-compose up``. Logs will be streamed to the console, and CJT can be stopped with `^c`. Alternatively you can run CJT detached using ``docker-compose up -d``, access logs with ``docker logs cjt``, and stop using ``docker-compose down``.
 
 You may then access CJT at http://localhost:9090 and complete the Getting Started wizard.
 
