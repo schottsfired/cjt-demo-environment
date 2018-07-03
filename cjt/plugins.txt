@@ -1,4 +1,10 @@
-swarm 
+swarm
+antisamy-markup-formatter
+workflow-support
+jquery
+workflow-job
+branch-api
+config-file-provider
 timestamper 
 pipeline-maven 
 ansicolor 
