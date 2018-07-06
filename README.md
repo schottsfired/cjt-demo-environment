@@ -31,5 +31,3 @@ To test new plugins and groovy scripts, make your changes in either ``plugins.tx
 
 ## CI/CD Demos
 Try running http://github.com/schottsfired/sample-rest-server on me with [Blue Ocean](https://jenkins.io/projects/blueocean/)! But first, add a username/password credential in Jenkins with ID 'dockerhub', where the password is the API Key from your account page on http://cloud.docker.com. Then, update the ``Jenkinsfile`` ``environment {}`` in your fork of sample-rest-server so that the image is pushed to your own account. Lastly, don't forget to ``make agent`` and ``make sonar`` before running builds.
-
-Another great example is @jglick's https://github.com/cloudbeers/multibranch-demo - no modifications are needed to run. Simply fork it, then use Blue Ocean to point to your fork.
