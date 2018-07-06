@@ -31,10 +31,6 @@ sonar: #stop it with 'docker stop sonar'
 	-p 9000:9000 \
 	-p 9092:9092 \
 	sonarqube:lts-alpine
-	
-upgrade:
-	docker container prune --force --filter "label=app-name=cjt-demo-environment" \
-	&& docker rmi cjt \
-	&& docker rmi swarm-agent \
-	&& docker images --format '{{.Repository}}:{{.Tag}}' | grep '^cloudbees/cloudbees-jenkins-team' | xargs docker rmi \
-	&& make
+
+clean:
+	docker image prune -f

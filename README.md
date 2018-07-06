@@ -19,12 +19,17 @@ To start CJT, run ``docker-compose up``. Logs will be streamed to the console, a
 
 You may then access CJT at http://localhost:9090 and complete the Getting Started wizard.
 
-To start Agent(s), run ``make agent``. To stop all Agents, run ``make stop``.
+To start Agent(s), run ``make agent``. To stop all Agents, run ``make stop``. 
 
-NOTE: [Swarm](https://wiki.jenkins.io/display/JENKINS/Swarm+Plugin) Agents require a user with appropriate permissions to connect to CJT. The default is admin/admin and you can change it in your ``.env`` if you wish.
+To clean up images, run ``make clean``.
 
-## Upgrading
-To upgrade to a newer version, first stop CJT with control+C or ``docker-compose down``, then stop Agents with ``make stop``, then run ``make upgrade``.
+NOTE: [Swarm](https://wiki.jenkins.io/display/JENKINS/Swarm+Plugin) Agents require a user with appropriate permissions to connect to CJT. The default is admin/admin and you can change it in your ``.env`` if necessary (e.g. you did not change the initialAdminPassword during the Getting Started wizard).
 
-## CI/CD Demo
-Try running http://github.com/schottsfired/sample-rest-server on me! You will need to add credentials, update the ``Jenkinsfile`` environment variables, and be sure to ``make agent`` and ``make sonar`` before giving it a spin.
+## Adding Plugins and Groovy Scripts
+
+To test new plugins and groovy scripts, make your changes in either ``plugins.txt`` or ``/init.groovy.d/descriptive-name.groovy``, then run ``make`` to build new images with your changes, then run ``docker-compose up`` to see the change reflected in Jenkins. It may be helpful to delete local directories while testing, for example ``/data/plugins``.
+
+## CI/CD Demos
+Try running http://github.com/schottsfired/sample-rest-server on me with [Blue Ocean](https://jenkins.io/projects/blueocean/)! But first, add a username/password credential in Jenkins with ID 'dockerhub', where the password is the API Key from your account page on http://cloud.docker.com. Then, update the ``Jenkinsfile`` ``environment {}`` in your fork of sample-rest-server so that the image is pushed to your own account. Lastly, don't forget to ``make agent`` and ``make sonar`` before running builds.
+
+Another great example is @jglick's https://github.com/cloudbeers/multibranch-demo - no modifications are needed to run. Simply fork it, then use Blue Ocean to point to your fork.
