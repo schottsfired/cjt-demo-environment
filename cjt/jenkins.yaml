@@ -16,7 +16,7 @@ jobs:
         branchSources {
           git {
             id('sample-rest-server-branchSource')
-            remote('https://github.com/mdelgin/sample-rest-server.git')
+            remote("https://github.com/${GITHUB_USER}/sample-rest-server.git")
             includes('*')
           }
         }
