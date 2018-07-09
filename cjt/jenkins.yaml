@@ -9,14 +9,14 @@ unclassified:
           modernSCM:
             scm:
               git:
-                remote: "https://github.com/schottsfired/pipeline-libraries.git"
+                remote: "https://github.com/cloudy-demos/pipeline-libraries.git"
 jobs:
   - >
       multibranchPipelineJob('sample-rest-server') {
         branchSources {
           git {
             id('sample-rest-server-branchSource')
-            remote("https://github.com/REPO_OWNER/sample-rest-server.git")
+            remote("https://github.com/cloudy-demos/sample-rest-server.git")
             includes('*')
           }
         }

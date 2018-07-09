@@ -21,7 +21,6 @@ services:
       - ./cjt/data:/var/jenkins_home #persist all the data
       - /var/run/docker.sock:/var/run/docker.sock #Docker on Docker
       - ${USER_M2}:/root/.m2 #requires .env file
-    command: sh /usr/local/bin/set-github-user.sh
 
 networks:
   default:
