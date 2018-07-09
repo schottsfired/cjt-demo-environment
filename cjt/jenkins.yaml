@@ -3,7 +3,7 @@ jenkins:
 unclassified:
   globalLibraries:
     libraries:
-      - name: "github.com/schottsfired/pipeline-libraries"
+      - name: "github.com/cloud-demos/pipeline-libraries"
         defaultVersion: master
         retriever:
           modernSCM:
