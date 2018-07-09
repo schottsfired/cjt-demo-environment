@@ -8,7 +8,7 @@
 ## Initial Setup
 This demo requires that you have [Docker](https://www.docker.com/get-docker) and [Maven](https://maven.apache.org/) installed.
 
-Open a terminal at this repo location and run `cp .sample.env .env` to create local file called `.env` based on the sample. Then modify `.env` to make it specific to your environment. You should only need to touch ``USER_M2``, all others may remain as-is.
+Open a terminal at this repo location and run `cp .sample.env .env` to create local file called `.env` based on the sample. Then modify `.env` to make it specific to your environment. You should only need to touch ``USER_M2`` and the Docker Hub credentials, all others may remain as-is.
 
 Finally, run ``make`` to let Docker do its thing.
 

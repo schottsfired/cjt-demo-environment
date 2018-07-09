@@ -1,0 +1,37 @@
+jenkins:
+  systemMessage: "CloudBees Jenkins Team local demo environment with sample-rest-server job configured as code."
+unclassified:
+  globalLibraries:
+    libraries:
+      - name: "github.com/cloudy-demos/pipeline-libraries"
+        defaultVersion: master
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                remote: "https://github.com/cloudy-demos/pipeline-libraries.git"
+jobs:
+  - >
+      multibranchPipelineJob('sample-rest-server') {
+        branchSources {
+          git {
+            id('sample-rest-server-branchSource')
+            remote("https://github.com/cloudy-demos/sample-rest-server.git")
+            includes('*')
+          }
+        }
+      }
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: sonar
+              username: ${SONAR_USER}
+              password: ${SONAR_PASSWORD}
+          - usernamePassword:
+              scope: GLOBAL
+              id: dockerhub
+              username: ${DOCKERHUB_USER}
+              password: ${DOCKERHUB_PASSWORD}
