@@ -14,7 +14,6 @@ services:
       SONAR_PASSWORD: ${SONAR_PASSWORD}
       DOCKERHUB_USER: ${DOCKERHUB_USER}
       DOCKERHUB_PASSWORD: ${DOCKERHUB_PASSWORD}
-      GITHUB_USER: ${GITHUB_USER}
     ports:
       - "9090:8080" #host:container
     volumes:
