@@ -9,6 +9,12 @@ USER root
 # add config file
 COPY jenkins.yaml /usr/share/jenkins/ref/
 
+# set github owner in jenkins.yaml for sample-rest-server job
+# RUN set -a && . ../.env && sed -i '' -e "s/REPO_OWNER/$GITHUB_USER/g" ./jenkins.yaml && set +a
+# RUN sed -i -e "s/REPO_OWNER/$GITHUB_USER/g" /usr/share/jenkins/ref/jenkins.yaml
+COPY set-github-user.sh /usr/local/bin/set-github-user.sh
+RUN chmod 755 /usr/local/bin/set-github-user.sh
+
 # add environment variable to point to configuration file
 ENV CASC_JENKINS_CONFIG /usr/share/jenkins/ref/jenkins.yaml
 
