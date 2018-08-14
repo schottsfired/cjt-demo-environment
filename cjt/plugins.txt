@@ -45,7 +45,7 @@ matrix-project:1.12
 pipeline-stage-step:2.3
 pipeline-build-step:2.7
 antisamy-markup-formatter:1.5
-pipeline-maven:3.5.8
+pipeline-maven:3.5.11
 pipeline-input-step:2.8
 bouncycastle-api:2.16.2
 handlebars:1.1.1
@@ -112,7 +112,8 @@ cloudbees-support:3.18
 favorite:2.3.1
 blueocean-bitbucket-pipeline:1.5.1
 mapdb-api:1.0.9.0
-configuration-as-code:0.9-alpha
+configuration-as-code:1.0-rc1
+configuration-as-code-support:1.0-rc1
 job-dsl:1.70
 github-organization-folder:1.6
 pipeline-github-lib:1.0

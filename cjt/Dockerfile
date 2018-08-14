@@ -1,4 +1,4 @@
-FROM cloudbees/cloudbees-jenkins-team:2.121.1.2
+FROM cloudbees/cloudbees-jenkins-team:2.121.2.1
 
 LABEL app-name="cjt-demo-environment"
 

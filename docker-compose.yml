@@ -14,6 +14,8 @@ services:
       SONAR_PASSWORD: ${SONAR_PASSWORD}
       DOCKERHUB_USER: ${DOCKERHUB_USER}
       DOCKERHUB_PASSWORD: ${DOCKERHUB_PASSWORD}
+      JENKINS_USER: ${JENKINS_USER}
+      JENKINS_PASSWORD: ${JENKINS_PASSWORD}
     ports:
       - "9090:8080" #host:container
     volumes:
