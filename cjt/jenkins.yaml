@@ -1,6 +1,30 @@
 jenkins:
   systemMessage: "CloudBees Jenkins Team local demo environment with sample-rest-server job configured as code."
+  numExecutors: 0
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  agentProtocols:
+    - 'JNLP4-connect'
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: true
+  securityRealm:
+    local:
+      users:
+        - id: ${JENKINS_USER}
+          password: ${JENKINS_PASSWORD}
+  remotingSecurity:
+    enabled: true
+  slaveAgentPort: 50000
+security:
+  remotingCLI:
+    enabled: false
+  sshd:
+    port: 50001
 unclassified:
+  location:
+    url: http://localhost:9090
   globalLibraries:
     libraries:
       - name: "github.com/cloudy-demos/pipeline-libraries"
@@ -11,7 +35,7 @@ unclassified:
               git:
                 remote: "https://github.com/cloudy-demos/pipeline-libraries.git"
 jobs:
-  - >
+  - script : >
       multibranchPipelineJob('sample-rest-server') {
         branchSources {
           git {
