@@ -45,6 +45,16 @@ jobs:
           }
         }
       }
+  - script : >
+      multibranchPipelineJob('aspnet-app') {
+        branchSources {
+          git {
+            id('aspnet-app-branchSource')
+            remote("https://github.com/cloudy-demos/aspnet-app.git")
+            includes('*')
+          }
+        }
+      }
 credentials:
   system:
     domainCredentials:
