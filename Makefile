@@ -7,12 +7,17 @@ default:
 	&& docker build --no-cache --pull -f ./cjt/Dockerfile -t cjt ./cjt \
 	&& docker build --no-cache --pull -f ./agent/Dockerfile -t swarm-agent ./agent
 
+agent-build:
+	docker build --rm \
+	-f agent/Dockerfile \
+	-t swarm-agent ./agent
+	
 agent:
 	docker run --rm -d \
 	--network=cjt-network \
 	--volumes-from cjt \
 	swarm-agent \
-	java -jar swarm-client-3.9.jar \
+	java -jar swarm-client-3.15.jar \
 	-description "CJT Demo Swarm Agent" \
 	-master $(AGENT_MASTER) \
 	-username $(AGENT_USER) \

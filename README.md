@@ -19,11 +19,17 @@ To start CJT, run ``docker-compose up``. Logs will be streamed to the console, a
 
 You may then access CJT at http://localhost:9090 and complete the Getting Started wizard.
 
-To start Agent(s), run ``make agent``. To stop all Agents, run ``make stop``. 
+To start Agent(s), run ``make agent``. To stop all Agents, run ``make stop``. To build a new agent image after making changes, run ``make agent-build``.
 
 To clean up images, run ``make clean``.
 
-NOTE: [Swarm](https://wiki.jenkins.io/display/JENKINS/Swarm+Plugin) Agents require a user with appropriate permissions to connect to CJT. The default is admin/admin and you can change it in your ``.env`` if necessary (e.g. you did not change the initialAdminPassword during the Getting Started wizard).
+NOTE: [Swarm](https://wiki.jenkins.io/display/JENKINS/Swarm+Plugin) Agents require a user with appropriate permissions to connect to CJT. The default is admin/admin and you can change it in your ``.env`` if necessary.
 
 ## CI/CD Demos
-Thanks to the [Configuration as Code Plugin](https://github.com/jenkinsci/configuration-as-code-plugin), demos are built in! A [Sample Rest Server](https://github.com/cloudy-demos/sample-rest-server) is available out of the box, which uses [Pipeline Shared Libraries](https://github.com/cloudy-demos/pipeline-libraries) as a form of templating.
+Thanks to the [Configuration as Code Plugin](https://github.com/jenkinsci/configuration-as-code-plugin), demos are built in! 
+
+A [Sample Rest Server](https://github.com/cloudy-demos/sample-rest-server) project is configured out of the box, which uses [Pipeline Shared Libraries](https://github.com/cloudy-demos/pipeline-libraries) as a form of templating.
+
+Sample Rest Server requires a Sonar server to function properly. Run ``make sonar`` to launch one then access it at http://localhost:9000 to see that it's running and view test results.
+
+An [ASP.Net Core App](https://github.com/cloudy-demos/aspnet-app) project is also configured out of the box. Note that this pipeline has an "approval" step that requires a human to approve.
